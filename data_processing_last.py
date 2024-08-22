@@ -67,22 +67,22 @@ def multi_process(data):
 
     gdf = pd.concat([result_w, result_m], axis=0)
 
-    gdf.to_csv('/home/hdd_data/서울/hyun/people/gdf_20_0423.csv', index=False, encoding='utf-8')
+    gdf.to_csv('gdf_20_0423.csv', index=False, encoding='utf-8')
         
     
 if __name__ == "__main__":
     # 데이터 불러오기
-    sigungu = gpd.read_file('/home/hdd_data/서울/hyun/people/SIG_20221119/sig.shp', encoding='cp949')
-    seoul_map = gpd.read_file('/home/hdd_data/서울/hyun/people/서울시 상권분석서비스(영역-행정동)/서울시 상권분석서비스(영역-행정동).shp')
+    sigungu = gpd.read_file('SIG_20221119/sig.shp', encoding='cp949')
+    seoul_map = gpd.read_file('서울시 상권분석서비스(영역-행정동)/서울시 상권분석서비스(영역-행정동).shp')
 
     
     # 시군구 읍면동 데이터 합치기
     sigungu_emd = sigungu_emd_concat(sigungu, seoul_map)
     
     # geopandas로 변경
-    df_10 = pd.read_csv('/home/hdd_data/서울/hyun/people/skt2210_20.csv', index_col=0)
-    df_11 = pd.read_csv('/home/hdd_data/서울/hyun/people/skt2211_20.csv', index_col=0)
-    df_12 = pd.read_csv('/home/hdd_data/서울/hyun/people/skt2212_20.csv', index_col=0)
+    df_10 = pd.read_csv('skt2210_20.csv', index_col=0)
+    df_11 = pd.read_csv('skt2211_20.csv', index_col=0)
+    df_12 = pd.read_csv('skt2212_20.csv', index_col=0)
     df_a = pd.concat([df_10, df_11])
     df = pd.concat([df_a, df_12])
     
